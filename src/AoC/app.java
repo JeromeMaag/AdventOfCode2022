@@ -16,28 +16,26 @@ public class app {
     static {
         DAYS.put(1, new day01());
         DAYS.put(2, new day02());
+        DAYS.put(3, new day03());
     }
 
     public static void main(String[] args) {
         int day = 1;
-        boolean firstPartOnly = true;
+        boolean differentLists = true;
 
 
-        List<String> input_part1 = new ArrayList<>();
-        List<String> input_part2 = new ArrayList<>();
+        List<String> inputList;
+        List<String> secondList = new ArrayList<>();
 
-
-
-        input_part1 =   loadInput(day, 1);
-        if (!firstPartOnly){
-            input_part2 = loadInput(day, 2);
+        inputList =   loadInput(day, 1);
+        if (differentLists){
+            secondList = loadInput(day, 2);
         }
 
-        System.out.println(input_part1);
+        System.out.println(inputList);
 
-        System.out.println("Day" + day + " Part 1= " +DAYS.get(day).part1(input_part1));
-        if (!firstPartOnly){
-            System.out.println("Day" + day + " Part 2= " +DAYS.get(day).part2(input_part2));}
+        System.out.println("Day " + day + " Part 1= " +DAYS.get(day).part1(inputList, secondList));
+        System.out.println("Day " + day + " Part 2= " +DAYS.get(day).part2(inputList, secondList));
     }
 
     private static List<String> loadInput(int day, int part) {
