@@ -8,12 +8,12 @@ import java.util.List;
 
 public class day01 implements day {
     @Override
-    public String part1(List<String> input, List<String> input2) {
+    public String part1(List<String> input) {
 
         List<Integer> i = new ArrayList<>();
         i.add(0);
 
-        for (String s: input2){
+        for (String s: input){
             if(s.equals("")){
                 i.add(0);
             }
@@ -28,18 +28,16 @@ public class day01 implements day {
 
 
 
-        System.out.println(i);
-
-
         Collections.sort(i);
+        Collections.reverse(i);
         System.out.println(i);
 
-        return String.valueOf("1");
+        return "1";
 
     }
 
     @Override
-    public String part2(List<String> input, List<String> input2) {
+    public String part2(List<String> input) {
 
 
         int res = 0;

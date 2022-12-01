@@ -7,7 +7,7 @@ import java.util.List;
 
 public class day03 implements day {
     @Override
-    public String part1(List<String> input, List<String> input2) {
+    public String part1(List<String> input) {
         int gamma = 0;
         int epsilon = 0;
         int p1 = 0;
@@ -23,7 +23,7 @@ public class day03 implements day {
         int p11= 0;
         int p12= 0;
         int c=0;
-        for(String s : input2){
+        for(String s : input){
             c++;
             char[] a = s.toCharArray();
             p1 = Integer.valueOf(a[0]) + p1;
@@ -48,7 +48,7 @@ public class day03 implements day {
     }
 
     @Override
-    public String part2(List<String> input, List<String> input2) {
+    public String part2(List<String> input) {
         int res = 0;
         return String.valueOf(res);
     }

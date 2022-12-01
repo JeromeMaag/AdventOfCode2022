@@ -5,9 +5,9 @@ import java.util.List;
 
 public interface day {
 
-    String part1(List<String> input, List <String> input2);
+    String part1(List <String> input);
 
-    String part2(List<String> input, List <String> input2);
+    String part2(List <String> input);
 
     default List <Integer> toIntList(List<String> list){
         List<Integer> intList = new ArrayList<>();

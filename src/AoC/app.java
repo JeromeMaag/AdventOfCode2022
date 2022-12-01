@@ -20,22 +20,19 @@ public class app {
     }
 
     public static void main(String[] args) {
+        System.out.println("\n");
         int day = 1;
-        boolean differentLists = true;
 
 
-        List<String> inputList;
-        List<String> secondList = new ArrayList<>();
+        List<String> exampleList = loadInput(day, 1);
+        List<String> inputList = loadInput(day, 2);
 
-        inputList =   loadInput(day, 1);
-        if (differentLists){
-            secondList = loadInput(day, 2);
-        }
 
-        System.out.println(inputList);
+        System.out.println("EXAMPLE:\nDay " + day + " Part 1= " +DAYS.get(day).part1(exampleList));
+        System.out.println("Day " + day + " Part 2= " +DAYS.get(day).part2(exampleList) + "\n");
 
-        System.out.println("Day " + day + " Part 1= " +DAYS.get(day).part1(inputList, secondList));
-        System.out.println("Day " + day + " Part 2= " +DAYS.get(day).part2(inputList, secondList));
+        System.out.println("REAL:\nDay " + day + " Part 1= " +DAYS.get(day).part1(inputList));
+        System.out.println("Day " + day + " Part 2= " +DAYS.get(day).part2(inputList));
     }
 
     private static List<String> loadInput(int day, int part) {
@@ -43,7 +40,7 @@ public class app {
         if(day < 10) {
             paddedDay = "0" + day;
         }
-        String fileName = "C:/coding/AdventOfCode2022/AdventOfCode2022/resources/day" + paddedDay + "_" + part+ ".txt";
+        String fileName = "resources/day" + paddedDay + "_" + part+ ".txt";
         FileInputStream file = null;
         try {
             file = new FileInputStream(fileName);
