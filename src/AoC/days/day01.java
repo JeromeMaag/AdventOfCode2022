@@ -26,10 +26,9 @@ public class day01 implements day {
             }
         }
 
-
-
         Collections.sort(i);
         Collections.reverse(i);
+
         System.out.println(i);
 
         return "1";

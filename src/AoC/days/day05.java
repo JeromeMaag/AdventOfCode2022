@@ -5,12 +5,14 @@ import AoC.day;
 import java.util.ArrayList;
 import java.util.List;
 
-public class day03 implements day {
+public class day05 implements day {
     @Override
     public String part1(List<String> input) {
         int res = 0;
 
-        //in Python programmiert
+        for(String s: input){
+            String[] sPars = s.trim().split(" ");
+        }
 
 
         return String.valueOf(res);
@@ -18,9 +20,6 @@ public class day03 implements day {
 
     @Override
     public String part2(List<String> input) {
-
-        //in Python programmiert
-
         int res = 0;
         return String.valueOf(res);
     }

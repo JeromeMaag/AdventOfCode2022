@@ -17,11 +17,20 @@ public class app {
         DAYS.put(1, new day01());
         DAYS.put(2, new day02());
         DAYS.put(3, new day03());
+        DAYS.put(4, new day04());
+        DAYS.put(5, new day05());
+        DAYS.put(6, new day06());
+        DAYS.put(7, new day07());
+        DAYS.put(8, new day08());
+        DAYS.put(9, new day09());
+        DAYS.put(10, new day10());
+
+
     }
 
     public static void main(String[] args) {
         System.out.println("\n");
-        int day = 1;
+        int day = 5;
 
 
         List<String> exampleList = loadInput(day, 1);
