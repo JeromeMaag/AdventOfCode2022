@@ -30,12 +30,11 @@ public class app {
 
     public static void main(String[] args) {
         System.out.println("\n");
-        int day = 5;
+        int day = 6;
 
 
         List<String> exampleList = loadInput(day, 1);
         List<String> inputList = loadInput(day, 2);
-
 
         System.out.println("EXAMPLE:\nDay " + day + " Part 1= " +DAYS.get(day).part1(exampleList));
         System.out.println("Day " + day + " Part 2= " +DAYS.get(day).part2(exampleList) + "\n");
