@@ -30,7 +30,7 @@ public class app {
 
     public static void main(String[] args) {
         System.out.println("\n");
-        int day = 6;
+        int day = 1;
 
 
         List<String> exampleList = loadInput(day, 1);

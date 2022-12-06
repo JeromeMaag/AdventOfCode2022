@@ -14,25 +14,19 @@ public class day01 implements day {
         i.add(0);
 
         for (String s: input){
-            if(s.equals("")){
+            if(s.isEmpty()){
                 i.add(0);
             }
             else {
                 int x = i.get(i.size()-1);
-                x = x + Integer.valueOf(s);
-                i.remove(i.size()-1);
-                i.add(x);
-
+                x += Integer.parseInt(s);
+                i.set(i.size()-1, x);
             }
         }
-
         Collections.sort(i);
         Collections.reverse(i);
 
-        System.out.println(i);
-
-        return "1";
-
+        return String.valueOf(i.get(0));
     }
 
     @Override

@@ -2,9 +2,7 @@ package AoC.days;
 
 import AoC.day;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class day05 implements day {
     @Override
@@ -17,8 +15,8 @@ public class day05 implements day {
         List<String> stack5a = Arrays.asList("W", "F", "S", "B", "G", "Q", "V", "M");
         List<String> stack6a = Arrays.asList("S", "R", "T", "D", "V", "W", "C");
         List<String> stack7a = Arrays.asList("H", "B", "N", "C", "D", "Z", "G", "V");
-        List<String> stack8a = Arrays.asList("C","G","M","N","J","S");
-        List<String> stack9a = Arrays.asList("L","D","J","C","W","N","P","G");
+        List<String> stack8a = Arrays.asList("S","J","N","M","G","C");
+        List<String> stack9a = Arrays.asList("G","P","N","W","C","J","D","L");
         List<String> stack1 = new ArrayList<>();
         List<String> stack2 = new ArrayList<>();
         List<String> stack3 = new ArrayList<>();
@@ -29,7 +27,6 @@ public class day05 implements day {
         List<String> stack8 = new ArrayList<>();
         List<String> stack9 = new ArrayList<>();
 
-
         stack1.addAll(stack1a);
         stack2.addAll(stack2a);
         stack3.addAll(stack3a);
@@ -39,8 +36,17 @@ public class day05 implements day {
         stack7.addAll(stack7a);
         stack8.addAll(stack8a);
         stack9.addAll(stack9a);
+        int ff=0;
 
+        while(ff==0){
+            if(!input.get(0).equals("")){
+                input.remove(0);
+            }else {
+                input.remove(0);
+                ff = 1;
+            }
 
+        }
 
 
         for(String s: input){
@@ -172,21 +178,55 @@ public class day05 implements day {
                 + stack8.get(stack8.size()-1)+ stack9.get(stack9.size()-1);
 
 
-        System.out.println(stack1);
-        System.out.println(stack2);
-        System.out.println(stack3);
-        System.out.println(stack4);
-        System.out.println(stack5);
-        System.out.println(stack6);
-        System.out.println(stack7);
-        System.out.println(stack8);
-        System.out.println(stack9);
         return x;
     }
 
     @Override
     public String part2(List<String> input) {
-        int res = 0;
-        return String.valueOf(res);
+        List<Stack<Character>> stacks = new ArrayList<>();
+
+
+        while (input.size() > 0 ) {
+            String line = input.get(0);
+            input.remove(0);
+            if (line.equals("")) {
+                break;
+            }
+
+            // Create a stack for each line of input.
+            Stack<Character> stack = new Stack<>();
+            for (int i = 0; i < line.length(); i++) {
+                stack.push(line.charAt(i));
+            }
+            stacks.add(stack);
+        }
+
+        List<String> instructions = new ArrayList<>();
+        while (input.size() > 0) {
+            String line = input.get(0);
+            input.remove(0);
+            instructions.add(line);
+        }
+
+        for (String instruction : instructions) {
+            // Parse the instruction.
+            String[] parts = instruction.split(" ");
+            int numCrates = Integer.parseInt(parts[1]);
+            int fromStack = Integer.parseInt(parts[3]) -1;
+            int toStack = Integer.parseInt(parts[5]) - 1;
+
+            // Move the crates.
+            Stack<Character> from = stacks.get(fromStack);
+            Stack<Character> to = stacks.get(toStack);
+            for (int i = 0; i < numCrates; i++) {
+                to.push(from.pop());
+            }
+        }
+
+        // Print the top crate of each stack.
+        for (Stack<Character> stack : stacks) {
+            System.out.print(stack.peek());
+        }
+        return "";
     }
 }
