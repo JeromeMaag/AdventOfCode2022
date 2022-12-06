@@ -12,15 +12,13 @@ public class day01 implements day {
 
         List<Integer> i = new ArrayList<>();
         i.add(0);
-
-        for (String s: input){
-            if(s.isEmpty()){
+        for (String s : input) {
+            if (s.isEmpty()) {
                 i.add(0);
-            }
-            else {
-                int x = i.get(i.size()-1);
+            } else {
+                int x = i.get(i.size() - 1);
                 x += Integer.parseInt(s);
-                i.set(i.size()-1, x);
+                i.set(i.size() - 1, x);
             }
         }
         Collections.sort(i);
@@ -31,10 +29,22 @@ public class day01 implements day {
 
     @Override
     public String part2(List<String> input) {
+        List<Integer> i = new ArrayList<>();
+        i.add(0);
+        for (String s : input) {
+            if (s.isEmpty()) {
+                i.add(0);
+            } else {
+                int x = i.get(i.size() - 1);
+                x += Integer.parseInt(s);
+                i.set(i.size() - 1, x);
+            }
+        }
+        int sum = i.stream().sorted(Collections.reverseOrder())
+                .limit(3)
+                .mapToInt(Integer::intValue)
+                .sum();
 
-
-        int res = 0;
-        return String.valueOf(res);
+        return String.valueOf(sum);
     }
-
 }

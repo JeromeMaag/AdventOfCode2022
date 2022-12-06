@@ -1,18 +1,18 @@
 package AoC;
 
+import AoC.days.*;
+
 import java.io.*;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import AoC.days.*;
 
 import static java.util.stream.Collectors.toList;
 
 public class app {
 
     private static final Map<Integer, day> DAYS = new HashMap<>();
+
     static {
         DAYS.put(1, new day01());
         DAYS.put(2, new day02());
@@ -25,42 +25,42 @@ public class app {
         DAYS.put(9, new day09());
         DAYS.put(10, new day10());
 
-
     }
 
+
     public static void main(String[] args) {
+        int day = 7;            // <==========  ENTER DAY
+        boolean example = true; // <==========  Set if Example in dayXX_1
+
         System.out.println("\n");
-        int day = 1;
+        if (example) {
+            List<String> exampleList = loadInput(day, 1);
+            System.out.println("EXAMPLE:\nDay " + day + " Part 1= " + DAYS.get(day).part1(exampleList));
+            System.out.println("Day " + day + " Part 2= " + DAYS.get(day).part2(exampleList) + "\n");
+        }
 
-
-        List<String> exampleList = loadInput(day, 1);
         List<String> inputList = loadInput(day, 2);
-
-        System.out.println("EXAMPLE:\nDay " + day + " Part 1= " +DAYS.get(day).part1(exampleList));
-        System.out.println("Day " + day + " Part 2= " +DAYS.get(day).part2(exampleList) + "\n");
-
-        System.out.println("REAL:\nDay " + day + " Part 1= " +DAYS.get(day).part1(inputList));
-        System.out.println("Day " + day + " Part 2= " +DAYS.get(day).part2(inputList));
+        System.out.println("REAL:\nDay " + day + " Part 1= " + DAYS.get(day).part1(inputList));
+        System.out.println("Day " + day + " Part 2= " + DAYS.get(day).part2(inputList));
     }
 
     private static List<String> loadInput(int day, int part) {
         String paddedDay = String.valueOf(day);
-        if(day < 10) {
+        if (day < 10) {
             paddedDay = "0" + day;
         }
-        String fileName = "resources/day" + paddedDay + "_" + part+ ".txt";
-        FileInputStream file = null;
+        String fileName = "resources/day" + paddedDay + "_" + part + ".txt";
+        FileInputStream file;
         try {
             file = new FileInputStream(fileName);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
         System.out.println(fileName);
-        try(BufferedReader r = new BufferedReader(new InputStreamReader(file))){
+        try (BufferedReader r = new BufferedReader(new InputStreamReader(file))) {
             return r.lines().collect(toList());
-        } catch(IOException e){
+        } catch (IOException e) {
             throw new UncheckedIOException(e);
         }
     }
-
 }

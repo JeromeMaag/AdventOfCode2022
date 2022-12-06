@@ -2,7 +2,6 @@ package AoC.days;
 
 import AoC.day;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class day04 implements day {
@@ -11,7 +10,7 @@ public class day04 implements day {
         int res = 0;
 
 
-        for(String s: input){
+        for (String s : input) {
             String[] sPars = s.trim().split(",");
             String[] elv1 = sPars[0].trim().split("-");
             String[] elv2 = sPars[1].trim().split("-");
@@ -19,9 +18,9 @@ public class day04 implements day {
             Integer low2 = Integer.valueOf(elv2[0]);
             Integer high1 = Integer.valueOf(elv1[1]);
             Integer high2 = Integer.valueOf(elv2[1]);
-            if((low1 <= low2) && high1 >= high2){
+            if ((low1 <= low2) && high1 >= high2) {
                 res++;
-            }else if((low1 >= low2) && high1 <= high2){
+            } else if ((low1 >= low2) && high1 <= high2) {
                 res++;
             }
 
@@ -36,7 +35,7 @@ public class day04 implements day {
         int res = 0;
 
 
-        for(String s: input){
+        for (String s : input) {
             String[] sPars = s.trim().split(",");
             String[] elv1 = sPars[0].trim().split("-");
             String[] elv2 = sPars[1].trim().split("-");
@@ -44,8 +43,8 @@ public class day04 implements day {
             Integer low2 = Integer.valueOf(elv2[0]);
             Integer high1 = Integer.valueOf(elv1[1]);
             Integer high2 = Integer.valueOf(elv2[1]);
-            if((low1 > high2 || low2 > high1)){
-            }else{
+            if ((low1 > high2 || low2 > high1)) {
+            } else {
                 res++;
             }
 
