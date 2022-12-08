@@ -29,7 +29,7 @@ public class app {
 
 
     public static void main(String[] args) {
-        int day = 7;            // <==========  ENTER DAY
+        int day = 8;            // <==========  ENTER DAY
         boolean example = true; // <==========  Set if Example in dayXX_1
 
         System.out.println("\n");
